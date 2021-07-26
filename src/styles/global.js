@@ -21,8 +21,8 @@ export const GlobalStyles = createGlobalStyle`
         margin: 0;
         padding: 0;
         text-rendering: optimizeLegibility;
-        background: ${({ theme }) => theme.primaryLight};    
-        color: ${({ theme }) => theme.primaryDark};
+        background: ${({ theme }) => theme.body};    
+        color: ${({ theme }) => theme.text};
         background-size: 400% 400%;
         background-position: var(--bg-position);
         transition: background-position 2s ease;
