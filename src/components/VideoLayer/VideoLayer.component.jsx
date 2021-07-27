@@ -17,7 +17,7 @@ const VideoLayer = () => {
   return (
     <VideoLayerContainer>
       {mockData.items.map((item) => (
-        <Video item={item} />
+        <Video item={item} key={item.etag} />
       ))}
     </VideoLayerContainer>
   );
