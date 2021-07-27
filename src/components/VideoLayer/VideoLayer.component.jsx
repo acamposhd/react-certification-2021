@@ -6,7 +6,7 @@ const mockData = require('../../utils/mocks/youtube.json');
 
 const VideoLayerContainer = styled.div`
   width: 100%;
-  padding: 0 5% 0 5%;
+  padding: 0 10% 0 10%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
