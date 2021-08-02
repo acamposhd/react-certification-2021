@@ -5,22 +5,25 @@ import HomePage from '../../pages/Home';
 import NotFound from '../../pages/NotFound';
 import Layout from '../Layout';
 import ThemeContext from '../../context/ThemeContext';
+import VideoContext from '../../context/VideoContext';
 
 function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
         <ThemeContext>
-          <Layout>
-            <Switch>
-              <Route exact path="/">
-                <HomePage />
-              </Route>
-              <Route path="*">
-                <NotFound />
-              </Route>
-            </Switch>
-          </Layout>
+          <VideoContext>
+            <Layout>
+              <Switch>
+                <Route exact path="/">
+                  <HomePage />
+                </Route>
+                <Route path="*">
+                  <NotFound />
+                </Route>
+              </Switch>
+            </Layout>
+          </VideoContext>
         </ThemeContext>
       </AuthProvider>
     </BrowserRouter>
