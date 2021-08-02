@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import Video from './Video.component';
+import Video from '../Video.component';
 
 const item = {
   kind: 'youtube#searchResult',

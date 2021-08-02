@@ -1,9 +1,9 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import VideoLayer from './VideoLayer.component';
-import Video from './VideoComponent/Video.component';
+import VideoLayer from '../index';
+import Video from '../VideoComponent/Video.component';
 
-const mockData = require('../../utils/mocks/youtube.json');
+const mockData = require('../../../utils/mocks/youtube.json');
 
 it('Render Video title', async () => {
   const component = render(
@@ -23,7 +23,7 @@ it('Render Video Descriptions', async () => {
   const component = render(
     <VideoLayer>
       {mockData.items.map((item) => (
-        <Video item={item} />
+        <Video item={item} key={item.etag} />
       ))}
     </VideoLayer>
   );

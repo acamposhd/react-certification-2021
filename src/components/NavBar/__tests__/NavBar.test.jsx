@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import ThemeContext from '../../context/ThemeContext';
-import Navbar from './NavBar.component';
+import ThemeContext from '../../../context/ThemeContext';
+import Navbar from '../Navbar';
 
 test('renders NavBar', () => {
   // eslint-disable-next-line react/jsx-filename-extension

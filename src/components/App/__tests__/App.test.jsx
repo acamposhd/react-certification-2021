@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import App from './App.component';
+import App from '../index';
 
 test('renders title', () => {
   // eslint-disable-next-line react/jsx-filename-extension

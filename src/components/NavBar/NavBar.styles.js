@@ -1,34 +1,30 @@
-import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
-import Switch from './StyledSwitch/StyledSwitch.component';
-import mainLogo from '../../assets/images/wizeline.png';
-import { ThemeContextProvider } from '../../context/ThemeContext';
 
-const Nav = styled.div`
+export const Nav = styled.div`
   width: 100%;
   background: ${({ theme }) => theme.navbar};
   color: ${({ theme }) => theme.text};
   border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
 `;
 
-const NavHeader = styled.div`
+export const NavHeader = styled.div`
   padding: 10px 20px;
   width: 100%;
   display: flex;
 `;
 
-const NavSidebar = styled.div`
+export const NavSidebar = styled.div`
   width: 10.333%;
   text-align: left;
 `;
 
-const NavSearchBar = styled.div`
+export const NavSearchBar = styled.div`
   width: 50.333%;
   padding-right: 1vh;
   text-align: left;
 `;
 
-const Input = styled.input`
+export const Input = styled.input`
   width: 100%;
   font-size: 16px;
   border: solid 1px #dbdbdb;
@@ -49,7 +45,7 @@ const Input = styled.input`
   }
 `;
 
-const UserNav = styled.div`
+export const UserNav = styled.div`
   width: 10.333%;
   text-align: right;
   display: flex;
@@ -57,14 +53,14 @@ const UserNav = styled.div`
   justify-content: flex-end;
   align-items: flex-end;
 `;
-const ThemeNav = styled.div`
+export const ThemeNav = styled.div`
   width: 33.333%;
   text-align: right;
   display: table-cell;
   vertical-align: middle;
   margin-top: 5px;
 `;
-const StyledMenu = styled.button`
+export const StyledMenu = styled.button`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -86,42 +82,7 @@ const StyledMenu = styled.button`
     transform-origin: 1px;
   }
 `;
-const Image = styled.img`
+export const Image = styled.img`
   width: 38px;
   height: 38px;
 `;
-
-function NavBar() {
-  const { themeToggler } = useContext(ThemeContextProvider);
-
-  const [isToggled, setIsToggled] = useState(false);
-
-  const changeTheme = () => {
-    setIsToggled(!isToggled);
-    themeToggler();
-  };
-  return (
-    <Nav>
-      <NavHeader>
-        <NavSidebar>
-          <StyledMenu>
-            <span />
-            <span />
-            <span />
-          </StyledMenu>
-        </NavSidebar>
-        <NavSearchBar>
-          <Input type="text" placeholder="Search" />
-        </NavSearchBar>
-        <ThemeNav>
-          <Switch id="test-switch" toggled={isToggled} onChange={() => changeTheme()} />
-        </ThemeNav>
-        <UserNav>
-          <Image src={mainLogo} />
-        </UserNav>
-      </NavHeader>
-    </Nav>
-  );
-}
-
-export default NavBar;

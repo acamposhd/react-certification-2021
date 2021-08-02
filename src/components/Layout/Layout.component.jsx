@@ -1,9 +1,8 @@
 import React, { useContext } from 'react';
 import { ThemeProvider } from 'styled-components';
-import NavBar from '../NavBar/NavBar.component';
+import NavBar from '../NavBar';
 import { ThemeContextProvider } from '../../context/ThemeContext';
 import { darkTheme, lightTheme } from '../../styles/theme';
-import './Layout.styles.css';
 import { GlobalStyles } from '../../styles/global';
 
 function Layout({ children }) {
