@@ -8,8 +8,6 @@ function HomePage() {
 
   return (
     <section className="homepage" ref={sectionRef}>
-      <h1>Challenge 1</h1>
-
       <>
         <VideoLayer />
       </>
