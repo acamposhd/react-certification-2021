@@ -17,8 +17,8 @@ import { ThemeContextProvider } from '../../context/ThemeContext';
 import useYoutubeAPI from '../../hooks/useYoutubeAPI';
 
 function NavBar() {
-  const { themeToggler } = useContext(ThemeContextProvider);
-  const [isToggled, setIsToggled] = useState(false);
+  const { themeToggler, activeTheme } = useContext(ThemeContextProvider);
+  const [isToggled, setIsToggled] = useState(activeTheme === 'dark');
 
   const { query, setQuery, searchVideos } = useYoutubeAPI();
   const history = useHistory();
