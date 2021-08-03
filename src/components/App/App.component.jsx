@@ -6,6 +6,7 @@ import NotFound from '../../pages/NotFound';
 import Layout from '../Layout';
 import ThemeContext from '../../context/ThemeContext';
 import VideoContext from '../../context/VideoContext';
+import VideoDetails from '../../pages/VideoDetails/VideoDetails.page';
 
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
               <Switch>
                 <Route exact path="/">
                   <HomePage />
+                </Route>
+                <Route exact path="/video/:id">
+                  <VideoDetails />
                 </Route>
                 <Route path="*">
                   <NotFound />
