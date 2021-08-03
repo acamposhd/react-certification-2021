@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
 import {
   Image,
   Input,
@@ -20,9 +21,11 @@ function NavBar() {
   const [isToggled, setIsToggled] = useState(false);
 
   const { query, setQuery, searchVideos } = useYoutubeAPI();
+  const history = useHistory();
 
   useEffect(() => {
     searchVideos();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const changeTheme = () => {
@@ -37,6 +40,7 @@ function NavBar() {
   const onSearch = (e) => {
     if (e.key === 'Enter') {
       searchVideos();
+      history.push('/');
     }
   };
   return (

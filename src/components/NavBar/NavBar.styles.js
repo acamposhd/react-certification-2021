@@ -26,10 +26,10 @@ export const NavSearchBar = styled.div`
 
 export const Input = styled.input`
   width: 100%;
-  font-size: 16px;
+  font-size: 18px;
   border: solid 1px #dbdbdb;
   border-radius: 3px;
-  color: #262626;
+  color: black;
   padding: 7px 33px;
   color: #999;
   cursor: text;
