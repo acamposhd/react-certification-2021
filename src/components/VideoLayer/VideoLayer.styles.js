@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 export const VideoLayerContainer = styled.div`
-  width: 100%;
-  padding: 0 15px 0 5vh;
+  width: 80vw;
+  margin-left: 10vw;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   justify-content: flex-start;
+  align-items: center;
 `;

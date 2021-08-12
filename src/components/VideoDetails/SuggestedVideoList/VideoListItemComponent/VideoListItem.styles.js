@@ -46,18 +46,32 @@ export const TitleContainer = styled.div`
   width: 50%;
   border-radius: 5px;
 `;
+export const SubTitleContainer = styled.div`
+  margin-top: 6vh;
+  left: 40%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+`;
 export const Title = styled.h2`
-  font-size: 12px;
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 600;
   padding-left: 10px;
   /* padding-right: 10px; */
-  margin-bottom: 2px;
+  /* margin-bottom: 2px; */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 export const SubTitle = styled.h2`
   font-size: 14px;
   font-weight: 100;
   padding-left: 10px;
-  padding-right: 10px;
-  margin-top: 0;
+  margin-top: -1vh;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   color: ${({ theme }) => theme.textAccent};
 `;

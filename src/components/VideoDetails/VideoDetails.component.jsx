@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router';
 
 import useYoutubeAPI from '../../hooks/useYoutubeAPI';
+import { textTruncate } from '../../utils/fns';
 import VideoSuggestedList from './SuggestedVideoList/VideoSuggestedList';
 import {
   SubTitle,
@@ -29,7 +30,9 @@ const VideoDetailsComponent = () => {
         <VideoFrameComponent src={`https://www.youtube.com/embed/${id}`} key={id} />
         <VideoDescription>
           <Title>{getCurrentVideo()?.snippet?.title}</Title>
-          <SubTitle>{getCurrentVideo()?.snippet?.description}</SubTitle>
+          <SubTitle>
+            {textTruncate(getCurrentVideo()?.snippet?.description, 300, '...')}
+          </SubTitle>
         </VideoDescription>
       </VideoInfo>
       <VideoSuggestedList relatedVideos={relatedVideoList} />
