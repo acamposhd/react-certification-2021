@@ -35,9 +35,6 @@ const Video = (props) => {
             <SubTitle>{textTruncate(item?.snippet?.channelTitle, 20, '...')}</SubTitle>
             <SubTitle>{getRelativeDate(item?.snippet?.publishedAt)}</SubTitle>
           </SubTitleContainer>
-          {/* <SubTitleContainer>
-            <SubTitle>{item?.snippet?.publishedAt}</SubTitle>
-          </SubTitleContainer> */}
         </CardContainer>
       )}
     </>

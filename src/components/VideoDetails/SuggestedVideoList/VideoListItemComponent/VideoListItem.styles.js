@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const CardContainer = styled.div`
   width: 100%;
-  /* margin: 30px 10px 0 40px; */
   padding-left: 5px;
   padding-right: 5px;
   height: 120px;
@@ -14,13 +13,8 @@ export const CardContainer = styled.div`
   position: relative;
   background-color: ${({ theme }) => theme.body};
   border-radius: 5px;
-  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); */
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   cursor: pointer;
-
-  /* &:hover {
-    transform: scale(1.01);
-  } */
 `;
 export const ImageContainer = styled.div`
   top: 0%;
@@ -59,8 +53,6 @@ export const Title = styled.h2`
   font-size: 14px;
   font-weight: 600;
   padding-left: 10px;
-  /* padding-right: 10px; */
-  /* margin-bottom: 2px; */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
