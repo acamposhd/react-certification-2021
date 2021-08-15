@@ -5,6 +5,6 @@ export const VideoLayerContainer = styled.div`
   margin-left: 10vw;
   display: flex;
   flex-flow: row wrap;
-  justify-content: flex-start;
+  justify-content: ${({ isLoading }) => (isLoading ? 'center' : 'flex-start')};
   align-items: center;
 `;

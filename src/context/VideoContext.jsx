@@ -6,6 +6,7 @@ const VideoContext = ({ children }) => {
   const [videoList, setVideoList] = useState([]);
   const [relatedVideoList, setRelatedVideoList] = useState([]);
   const [currentVideo, setCurrentVideo] = useState(null);
+  const [isLoading, setLoading] = useState(false);
 
   return (
     <VideoContextProvider.Provider
@@ -16,6 +17,8 @@ const VideoContext = ({ children }) => {
         setCurrentVideo,
         relatedVideoList,
         setRelatedVideoList,
+        isLoading,
+        setLoading,
       }}
     >
       {children}

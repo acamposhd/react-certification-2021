@@ -8,9 +8,7 @@ function HomePage() {
 
   return (
     <section className="homepage" ref={sectionRef}>
-      <>
-        <VideoLayer />
-      </>
+      <VideoLayer />
     </section>
   );
 }

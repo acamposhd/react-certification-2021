@@ -9,13 +9,14 @@ const useYoutubeAPI = () => {
     setCurrentVideo,
     currentVideo,
     relatedVideoList,
+    setLoading,
   } = useContext(VideoContextProvider);
   const lastQuery = localStorage.getItem('query');
   const [query, setQuery] = useState(lastQuery ?? 'wizeline');
 
   const searchVideos = async () => {
     const localVideos = localStorage.getItem('videos');
-
+    setLoading((currentStatus) => !currentStatus);
     if (!lastQuery || lastQuery !== query) {
       const videos = await YoutubeAPI.searchVideos(query);
       localStorage.setItem('videos', JSON.stringify(videos.data));
@@ -24,6 +25,7 @@ const useYoutubeAPI = () => {
     } else if (localVideos) {
       setVideoList(JSON.parse(localVideos));
     }
+    setLoading((currentStatus) => !currentStatus);
   };
   const getRelatedVideos = async (vidId) => {
     const currentVidId = localStorage.getItem('currentVidId');

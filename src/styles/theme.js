@@ -1,10 +1,3 @@
-export const theme = {
-  primaryLight: '#FFFFFF',
-  accentLight: '#AD2831',
-  primaryDark: '#0D0C1D',
-  accentDark: '#800E13',
-};
-
 export const lightTheme = {
   body: '#FFF',
   navbar: '#F9F9F9',
