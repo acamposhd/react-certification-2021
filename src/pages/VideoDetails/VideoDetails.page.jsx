@@ -6,11 +6,7 @@ function VideoDetails() {
 
   return (
     <section className="homepage" ref={sectionRef}>
-      {/* <h1>Challenge 3</h1> */}
-
-      <>
-        <VideoDetailsComponent />
-      </>
+      <VideoDetailsComponent />
     </section>
   );
 }

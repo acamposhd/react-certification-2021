@@ -1,5 +1,8 @@
 .homepage {
   text-align: center;
+  position: relative;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .homepage h1 {

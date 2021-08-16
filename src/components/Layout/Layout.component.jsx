@@ -9,7 +9,7 @@ function Layout({ children }) {
   const { activeTheme } = useContext(ThemeContextProvider);
   const themeMode = activeTheme === 'light' ? lightTheme : darkTheme;
   return (
-    <main className="container">
+    <main>
       <ThemeProvider theme={themeMode}>
         <GlobalStyles />
         <NavBar />

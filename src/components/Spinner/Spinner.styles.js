@@ -9,7 +9,7 @@ to{
 const StyledSpinner = styled.div`
   width: 6rem;
   height: 6rem;
-  margin-top: 40vh;
+  margin-top: 10vh;
   border: 5px solid #ccc;
   border-radius: 50%;
   border-top-color: ${({ theme }) => theme.toggleBackground};

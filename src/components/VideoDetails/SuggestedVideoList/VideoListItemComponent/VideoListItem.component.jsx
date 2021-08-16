@@ -6,7 +6,6 @@ import {
   Title,
   SubTitle,
   TitleContainer,
-  SubTitleContainer,
   VideoImage,
 } from './VideoListItem.styles';
 import useYoutubeAPI from '../../../../hooks/useYoutubeAPI';
@@ -30,11 +29,9 @@ const Video = (props) => {
           </ImageContainer>
           <TitleContainer>
             <Title>{item?.snippet?.title}</Title>
-          </TitleContainer>
-          <SubTitleContainer>
-            <SubTitle>{textTruncate(item?.snippet?.channelTitle, 20, '...')}</SubTitle>
+            <SubTitle>{textTruncate(item?.snippet?.channelTitle, 30, '...')}</SubTitle>
             <SubTitle>{getRelativeDate(item?.snippet?.publishedAt)}</SubTitle>
-          </SubTitleContainer>
+          </TitleContainer>
         </CardContainer>
       )}
     </>

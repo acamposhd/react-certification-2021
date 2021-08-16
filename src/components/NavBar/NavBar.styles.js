@@ -1,31 +1,36 @@
 import styled from 'styled-components';
 
-export const Nav = styled.div`
+export const Nav = styled.header`
   width: 100%;
+  position: fixed;
+  top: 0;
   background: ${({ theme }) => theme.navbar};
   color: ${({ theme }) => theme.text};
   border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
+  overflow: hidden;
+  z-index: 100;
 `;
 
 export const NavHeader = styled.div`
   padding: 10px 20px;
   width: 100%;
   display: flex;
+  flex-flow: row nowrap;
 `;
 
 export const NavSidebar = styled.div`
-  width: 10.333%;
+  width: 10vw;
   text-align: left;
 `;
 
 export const NavSearchBar = styled.div`
-  width: 50.333%;
+  width: 50vw;
   padding-right: 1vh;
   text-align: left;
 `;
 
 export const Input = styled.input`
-  width: 100%;
+  width: 80%;
   font-size: 18px;
   border: solid 1px #dbdbdb;
   border-radius: 3px;
@@ -33,7 +38,7 @@ export const Input = styled.input`
   padding: 7px 33px;
   color: #999;
   cursor: text;
-  font-weight: 300;
+  font-weight: 600;
   text-align: left;
   background: #fafafa;
 
@@ -46,7 +51,7 @@ export const Input = styled.input`
 `;
 
 export const UserNav = styled.div`
-  width: 10.333%;
+  width: 10vw;
   text-align: right;
   display: flex;
   flex-direction: column;
