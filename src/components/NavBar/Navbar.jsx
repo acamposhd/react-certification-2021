@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import {
   Image,
@@ -13,14 +13,15 @@ import {
 } from './NavBar.styles';
 import Switch from './StyledSwitch/StyledSwitch.component';
 import mainLogo from '../../assets/images/wizeline.png';
-import { ThemeContextProvider } from '../../context/ThemeContext';
 import useYoutubeAPI from '../../hooks/useYoutubeAPI';
+import useTheme from '../../hooks/useTheme';
 
 function NavBar() {
-  const { themeToggler, activeTheme } = useContext(ThemeContextProvider);
+  const { query } = useYoutubeAPI();
+  const { themeToggler, activeTheme } = useTheme();
   const [isToggled, setIsToggled] = useState(activeTheme === 'dark');
 
-  const { query, setQuery, searchVideos } = useYoutubeAPI();
+  const { searchVideo, searchVideos } = useYoutubeAPI();
   const history = useHistory();
 
   useEffect(() => {
@@ -34,7 +35,7 @@ function NavBar() {
   };
 
   const onChange = (e) => {
-    setQuery(e.target.value);
+    searchVideo(e.target.value);
   };
 
   const onSearch = (e) => {

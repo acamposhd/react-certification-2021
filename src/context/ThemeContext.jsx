@@ -1,26 +1,35 @@
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
+import { reducerTypes } from '../utils/reducerTypes';
 
 export const ThemeContextProvider = React.createContext();
+const currentTheme = localStorage.getItem('theme');
+const initialState = {
+  activeTheme: currentTheme ?? 'light',
+};
+
+const reducer = (currentState, action) => {
+  switch (action.type) {
+    case reducerTypes.TOGGLE_THEME: {
+      const activeTheme = currentState.activeTheme === 'light' ? 'dark' : 'light';
+      localStorage.setItem('theme', activeTheme);
+      return {
+        ...currentState,
+        activeTheme,
+      };
+    }
+    default:
+      return currentState;
+  }
+};
 
 const ThemeContext = ({ children }) => {
-  const currentTheme = localStorage.getItem('theme');
-  const [activeTheme, setActiveTheme] = useState(currentTheme ?? 'light');
-  const themeToggler = () => {
-    if (activeTheme === 'light') {
-      localStorage.setItem('theme', 'dark');
-      setActiveTheme('dark');
-    } else {
-      localStorage.setItem('theme', 'light');
-      setActiveTheme('light');
-    }
-  };
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
     <ThemeContextProvider.Provider
       value={{
-        activeTheme,
-        setActiveTheme,
-        themeToggler,
+        state,
+        dispatch,
       }}
     >
       {children}

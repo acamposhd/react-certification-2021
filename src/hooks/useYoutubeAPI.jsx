@@ -1,6 +1,7 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import YoutubeAPI from '../apis/youtube';
 import { VideoContextProvider } from '../context/VideoContext';
+import { reducerTypes } from '../utils/reducerTypes';
 
 const useYoutubeAPI = () => {
   const {
@@ -10,9 +11,11 @@ const useYoutubeAPI = () => {
     currentVideo,
     relatedVideoList,
     setLoading,
+    state,
+    dispatch,
   } = useContext(VideoContextProvider);
+  const { query } = state;
   const lastQuery = localStorage.getItem('query');
-  const [query, setQuery] = useState(lastQuery ?? 'wizeline');
 
   const searchVideos = async () => {
     const localVideos = localStorage.getItem('videos');
@@ -47,10 +50,13 @@ const useYoutubeAPI = () => {
     const cv = JSON.parse(localStorage.getItem('currentVideo'));
     return currentVideo ?? cv;
   };
+  const searchVideo = (term) => {
+    dispatch({ type: reducerTypes.SET_SEARCH, payload: term });
+  };
 
   return {
-    setQuery,
     query,
+    searchVideo,
     searchVideos,
     getRelatedVideos,
     saveCurrentVideo,
