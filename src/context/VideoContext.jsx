@@ -4,7 +4,7 @@ import { reducerTypes } from '../utils/reducerTypes';
 export const VideoContextProvider = React.createContext();
 const lastQuery = localStorage.getItem('query');
 const initialState = {
-  query: lastQuery ?? 'wizeline',
+  query: lastQuery && lastQuery !== '' ? lastQuery : 'wizeline',
 };
 
 const reducer = (currentState, action) => {
