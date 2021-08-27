@@ -7,6 +7,7 @@ import Layout from '../Layout';
 import ThemeContext from '../../context/ThemeContext';
 import VideoContext from '../../context/VideoContext';
 import VideoDetails from '../../pages/VideoDetails/VideoDetails.page';
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute.component';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
                 <Route exact path="/video/:id">
                   <VideoDetails />
                 </Route>
+                <ProtectedRoute exact path="/videos" component={VideoDetails} />
                 <Route path="*">
                   <NotFound />
                 </Route>

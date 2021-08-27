@@ -5,6 +5,10 @@ export const VideoContextProvider = React.createContext();
 const lastQuery = localStorage.getItem('query');
 const initialState = {
   query: lastQuery && lastQuery !== '' ? lastQuery : 'wizeline',
+  isAuthenticated: false,
+  loginError: false,
+  modalOpened: false,
+  userLogged: {},
 };
 
 const reducer = (currentState, action) => {
@@ -15,6 +19,30 @@ const reducer = (currentState, action) => {
         ...currentState,
         query,
       };
+    }
+    case reducerTypes.TOGGLE_MODAL: {
+      return {
+        ...currentState,
+        modalOpened: action.payload,
+      };
+    }
+    case reducerTypes.LOGIN: {
+      let tempStatus = {};
+      if (action.payload) {
+        tempStatus = {
+          ...currentState,
+          userLogged: action.payload,
+          loginError: false,
+          isAuthenticated: true,
+          modalOpened: false,
+        };
+      } else {
+        tempStatus = {
+          ...currentState,
+          loginError: true,
+        };
+      }
+      return tempStatus;
     }
     default:
       return currentState;
