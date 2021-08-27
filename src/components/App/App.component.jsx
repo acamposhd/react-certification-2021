@@ -23,7 +23,7 @@ function App() {
                 <Route exact path="/video/:id">
                   <VideoDetails />
                 </Route>
-                <ProtectedRoute exact path="/videos" component={VideoDetails} />
+                <ProtectedRoute exact path="/favorite" component={VideoDetails} />
                 <Route path="*">
                   <NotFound />
                 </Route>

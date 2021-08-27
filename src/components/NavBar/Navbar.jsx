@@ -20,6 +20,7 @@ import { FadingBackground } from '../Modal/FadingBackground.component';
 import { StyledModalComponent } from '../Modal/StyledModal.component';
 import { LoginForm } from '../LoginForm/LoginForm.component';
 import noAuthImage from '../../assets/images/user.png';
+import StarIcon from '../../assets/images/star-icon.png';
 
 function NavBar() {
   const { query } = useYoutubeAPI();
@@ -69,9 +70,10 @@ function NavBar() {
         <NavHeader>
           <NavSidebar>
             <StyledMenu>
+              {/* <span />
               <span />
-              <span />
-              <span />
+              <span /> */}
+              <Image src={StarIcon} onClick={() => history.push('favorite')} />
             </StyledMenu>
           </NavSidebar>
           <NavSearchBar onClick={() => closeModal()}>
