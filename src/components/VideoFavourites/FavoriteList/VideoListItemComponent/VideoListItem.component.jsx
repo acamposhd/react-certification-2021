@@ -28,11 +28,11 @@ const Video = (props) => {
   return (
     <>
       {item?.snippet && (
-        <CardContainer onClick={onClick}>
+        <CardContainer>
           <StyledIcon onClick={() => toggleFavorite(item)}>
             {findFav(item) ? <FavoriteIcon /> : <FavoriteBorderIcon />}
           </StyledIcon>
-          <ImageContainer>
+          <ImageContainer onClick={onClick}>
             <VideoImage src={item.snippet?.thumbnails?.medium?.url} />{' '}
           </ImageContainer>
           <TitleContainer>

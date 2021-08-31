@@ -65,6 +65,13 @@ const useAuthentication = () => {
       });
     return result;
   };
+  const logout = () => {
+    setLoading(true);
+    dispatch({ type: reducerTypes.LOGIN });
+    localStorage.removeItem('user');
+    localStorage.setItem('isAuthenticated', false);
+    setLoading(false);
+  };
 
   const modal = {
     toggleModal,
@@ -78,6 +85,7 @@ const useAuthentication = () => {
 
   return {
     login,
+    logout,
     userLogged: currentUser ?? state.userLogged,
     modal,
     isAuthenticated,

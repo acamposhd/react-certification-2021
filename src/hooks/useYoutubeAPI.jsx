@@ -48,7 +48,7 @@ const useYoutubeAPI = () => {
   };
   const getCurrentVideo = () => {
     const cv = JSON.parse(localStorage.getItem('currentVideo'));
-    return currentVideo ?? cv;
+    return cv ?? currentVideo;
   };
   const searchVideo = (term) => {
     dispatch({ type: reducerTypes.SET_SEARCH, payload: term });

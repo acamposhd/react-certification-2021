@@ -2,6 +2,7 @@ import React from 'react';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import { useHistory } from 'react-router';
+
 import {
   CardContainer,
   ImageContainer,
@@ -11,9 +12,11 @@ import {
   VideoImage,
 } from './Video.styles';
 import useYoutubeAPI from '../../../hooks/useYoutubeAPI';
+import useAuthentication from '../../../hooks/useAuthentication';
 
 const Video = (props) => {
   const { item } = props;
+  const { isAuthenticated } = useAuthentication();
   const favVideos = JSON.parse(localStorage.getItem('favoriteVideos'));
   const { saveCurrentVideo, toggleFavorite } = useYoutubeAPI();
   const history = useHistory();
@@ -29,9 +32,12 @@ const Video = (props) => {
 
   return (
     <CardContainer>
-      <StyledIcon onClick={() => toggleFavorite(item)}>
-        {findFav(item) ? <FavoriteIcon /> : <FavoriteBorderIcon />}
-      </StyledIcon>
+      {isAuthenticated() && (
+        <StyledIcon onClick={() => toggleFavorite(item)}>
+          {findFav(item) ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+        </StyledIcon>
+      )}
+
       <ImageContainer onClick={onClick}>
         <VideoImage src={item?.snippet?.thumbnails?.medium?.url} />
         <Title>{item?.snippet?.title}</Title>

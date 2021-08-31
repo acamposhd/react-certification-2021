@@ -37,7 +37,10 @@ const reducer = (currentState, action) => {
           localStorage.setItem('favoriteVideos', JSON.stringify(newFav));
           if (currentVid?.id?.videoId === video.id.videoId) {
             if (newFav.length > 0) {
-              localStorage.setItem('currentVideo', JSON.stringify(newFav[0]));
+              localStorage.setItem(
+                'currentVideo',
+                JSON.stringify(newFav[newFav.length - 1])
+              );
             } else {
               localStorage.removeItem('currentVideo');
             }
@@ -81,6 +84,15 @@ const reducer = (currentState, action) => {
         };
       }
       return tempStatus;
+    }
+    case reducerTypes.LOGOUT: {
+      return {
+        ...currentState,
+        userLogged: null,
+        loginError: false,
+        isAuthenticated: false,
+        modalOpened: false,
+      };
     }
     default:
       return currentState;

@@ -13,7 +13,8 @@ import {
 
 export const LoginForm = () => {
   const { isLoading, state } = useContext(VideoContextProvider);
-  const { login } = useAuthentication();
+  const { login, logout } = useAuthentication();
+  const user = localStorage.getItem('user');
   const [loginData, setLoginData] = useState({
     user: '',
     pwd: '',
@@ -35,7 +36,12 @@ export const LoginForm = () => {
   return (
     <>
       {isLoading && <Spinner />}
-      {!isLoading && (
+      {user && (
+        <FormContainer>
+          <FormButton onClick={() => logout()}>Logout</FormButton>
+        </FormContainer>
+      )}
+      {!isLoading && !user && (
         <FormContainer>
           <StyledH2> Login</StyledH2>
           <StyledLabel htmlFor="user"> Username</StyledLabel>
