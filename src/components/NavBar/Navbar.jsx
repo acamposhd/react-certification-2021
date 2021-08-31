@@ -73,7 +73,7 @@ function NavBar() {
               {/* <span />
               <span />
               <span /> */}
-              <Image src={StarIcon} onClick={() => history.push('favorite')} />
+              <Image src={StarIcon} onClick={() => history.push('/favorite')} />
             </StyledMenu>
           </NavSidebar>
           <NavSearchBar onClick={() => closeModal()}>
