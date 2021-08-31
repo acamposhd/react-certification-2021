@@ -52,6 +52,14 @@ export const ImageContainer = styled.div`
   object-position: 50% 50%;
 `;
 
+export const StyledIcon = styled.div`
+  z-index: 1;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: red;
+`;
+
 export const VideoImage = styled.img`
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;

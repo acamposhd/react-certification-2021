@@ -14,7 +14,7 @@ const useYoutubeAPI = () => {
     state,
     dispatch,
   } = useContext(VideoContextProvider);
-  const { query } = state;
+  const { query, favoriteVideos } = state;
   const lastQuery = localStorage.getItem('query');
 
   const searchVideos = async () => {
@@ -48,10 +48,13 @@ const useYoutubeAPI = () => {
   };
   const getCurrentVideo = () => {
     const cv = JSON.parse(localStorage.getItem('currentVideo'));
-    return currentVideo ?? cv;
+    return cv ?? currentVideo;
   };
   const searchVideo = (term) => {
     dispatch({ type: reducerTypes.SET_SEARCH, payload: term });
+  };
+  const toggleFavorite = (video) => {
+    dispatch({ type: reducerTypes.TOGGLE_FAVORITE, payload: video });
   };
 
   return {
@@ -62,6 +65,8 @@ const useYoutubeAPI = () => {
     saveCurrentVideo,
     getCurrentVideo,
     relatedVideoList,
+    toggleFavorite,
+    favoriteVideos,
   };
 };
 

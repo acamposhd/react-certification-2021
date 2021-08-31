@@ -7,6 +7,8 @@ import Layout from '../Layout';
 import ThemeContext from '../../context/ThemeContext';
 import VideoContext from '../../context/VideoContext';
 import VideoDetails from '../../pages/VideoDetails/VideoDetails.page';
+import VideoFavorite from '../../pages/VideoFavorite/VideoFavorite.page';
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute.component';
 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
                 <Route exact path="/video/:id">
                   <VideoDetails />
                 </Route>
+                <ProtectedRoute exact path="/favorite" component={VideoFavorite} />
                 <Route path="*">
                   <NotFound />
                 </Route>
