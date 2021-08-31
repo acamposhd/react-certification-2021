@@ -3,4 +3,5 @@ export const reducerTypes = {
   SET_SEARCH: 'SET_SEARCH',
   LOGIN: 'LOGIN',
   TOGGLE_MODAL: 'OPEN_MODAL',
+  TOGGLE_FAVORITE: 'TOGGLE_FAVORITE',
 };
